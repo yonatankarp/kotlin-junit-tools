@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.20"
+    id("maven-publish")
 }
 
 repositories {
@@ -23,5 +24,28 @@ java {
 tasks {
     test {
         useJUnitPlatform()
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.yonatankarp"
+            artifactId = project.name
+            version = project.version.toString()
+
+            from(components["java"])
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/yonatankarp/kotlin-junit-tools")
+                credentials {
+                    username = project.findProperty("gpr.user")?.toString() ?: System.getenv("GITHUB_ACTOR")
+                    password = project.findProperty("gpr.key")?.toString() ?: System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
     }
 }
