@@ -6,8 +6,8 @@ on:
 
 jobs:
   artifact:
-    uses: yonatankarp/github-actions/.github/workflows/release.yml@fix_release_pipeline
+    uses: yonatankarp/github-actions/.github/workflows/release.yml@v1
     with:
-      tag: ${GITHUB_REF#refs/*/}
+      tag: ${{ github.event.release.tag_name }}
     secrets:
       GITHUB_PATH: ${{ secrets.REVIEWER_GITHUB_TOKEN }}
