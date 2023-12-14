@@ -10,4 +10,4 @@ jobs:
     with:
       tag: ${{ github.event.release.tag_name }}
     secrets:
-      GITHUB_PATH: ${{ secrets.REVIEWER_GITHUB_TOKEN }}
+      GITHUB_PAT: ${{ secrets.REVIEWER_GITHUB_TOKEN }}
