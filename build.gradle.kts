@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    api("ch.qos.logback:logback-core:1.5.3")
+    api("ch.qos.logback:logback-core:1.5.4")
     api("ch.qos.logback:logback-classic:1.5.3")
 
     // Tests
