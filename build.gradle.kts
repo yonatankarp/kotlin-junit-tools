@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     api("ch.qos.logback:logback-core:1.5.15")
-    api("ch.qos.logback:logback-classic:1.5.14")
+    api("ch.qos.logback:logback-classic:1.5.15")
 
     // Tests
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
