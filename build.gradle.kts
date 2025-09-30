@@ -13,7 +13,7 @@ dependencies {
 
     // Tests
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.13.4")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
