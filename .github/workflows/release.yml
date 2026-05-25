@@ -4,10 +4,14 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   artifact:
-    uses: yonatankarp/github-actions/.github/workflows/release-jar.yml@v1
+    uses: yonatankarp/github-actions/.github/workflows/release-jar.yml@v2
     with:
       tag: ${{ github.event.release.tag_name }}
     secrets:
-      GITHUB_PAT: ${{ secrets.REVIEWER_GITHUB_TOKEN }}
+      github-token: ${{ secrets.REVIEWER_GITHUB_TOKEN }}
