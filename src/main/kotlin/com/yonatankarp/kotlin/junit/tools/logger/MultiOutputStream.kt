@@ -16,8 +16,10 @@ import java.io.PrintStream
  * @param captureOut The OutputStreams to capture and duplicate the output. You can specify multiple
  * OutputStreams as varargs.
  */
-class MultiOutputStream(originalOut: OutputStream, vararg captureOut: OutputStream): Closeable {
-
+class MultiOutputStream(
+    originalOut: OutputStream,
+    vararg captureOut: OutputStream,
+) : Closeable {
     private val originalPrintStream = PrintStream(originalOut)
     private val capturedStream = captureOut.map { PrintStream(it) }.toList()
 
@@ -37,7 +39,10 @@ class MultiOutputStream(originalOut: OutputStream, vararg captureOut: OutputStre
      * @param body The byte array.
      * @param offset The start offset in the data.
      */
-    fun write(body: ByteArray, offset: Int = 0) {
+    fun write(
+        body: ByteArray,
+        offset: Int = 0,
+    ) {
         originalPrintStream.write(body, offset, body.size)
         capturedStream.forEach { it.write(body, offset, body.size) }
     }
