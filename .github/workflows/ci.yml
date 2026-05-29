@@ -28,5 +28,3 @@ jobs:
 
   linters:
     uses: yonatankarp/github-actions/.github/workflows/linters.yml@v2
-    with:
-      check_style: false
