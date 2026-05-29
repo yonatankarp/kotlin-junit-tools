@@ -1,8 +1,8 @@
 package com.yonatankarp.kotlin.junit.tools.logger
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import java.io.ByteArrayOutputStream
 import kotlin.test.Test
-import org.junit.jupiter.api.Assertions.assertEquals
 
 internal class MultiOutputStreamTest {
     @Test

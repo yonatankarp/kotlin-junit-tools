@@ -16,7 +16,9 @@ import org.slf4j.LoggerFactory
  * @param clazz The optional class for which to capture log events. If null, log
  * events will be captured for the root logger.
  */
-class InMemoryLoggerAppender(clazz: Class<*>? = null) : AppenderBase<ILoggingEvent>() {
+class InMemoryLoggerAppender(
+    clazz: Class<*>? = null,
+) : AppenderBase<ILoggingEvent>() {
     private val log = mutableListOf<ILoggingEvent>()
 
     init {

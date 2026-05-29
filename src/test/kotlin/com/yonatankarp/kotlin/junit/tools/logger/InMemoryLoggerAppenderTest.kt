@@ -1,10 +1,10 @@
 package com.yonatankarp.kotlin.junit.tools.logger
 
+import ch.qos.logback.classic.Logger
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
-import ch.qos.logback.classic.Logger
-import org.junit.jupiter.api.AfterEach
 import org.slf4j.event.Level.INFO
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -14,9 +14,10 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 internal class InMemoryLoggerAppenderTest {
-
-    private val logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
-        .apply { atLevel(INFO) }
+    private val logger =
+        LoggerFactory
+            .getLogger(Logger.ROOT_LOGGER_NAME)
+            .apply { atLevel(INFO) }
     private val appender = InMemoryLoggerAppender()
 
     @BeforeEach
@@ -71,10 +72,13 @@ internal class InMemoryLoggerAppenderTest {
 
     @Test
     fun `test init appender with class object catch only classes logs`() {
-        val instance = object {
-            val logger = LoggerFactory.getLogger(this::class.java)
-                .apply { atLevel(INFO) }
-        }
+        val instance =
+            object {
+                val logger =
+                    LoggerFactory
+                        .getLogger(this::class.java)
+                        .apply { atLevel(INFO) }
+            }
 
         val classAppender = InMemoryLoggerAppender(instance::class.java)
 
